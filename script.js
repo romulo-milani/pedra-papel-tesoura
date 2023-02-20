@@ -24,28 +24,77 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
+    //se retornar 0 o computador ganhou
+    //se retornar 1 o jogador ganhou
+    //se retornar 2 é um empate
+
     if (playerSelection == 'pedra' && computerSelection == 'pedra') {
-        return 'É um impate'
+        return 2
     } else if (playerSelection == 'pedra' && computerSelection == 'papel') {
-        return 'Computador ganhou'
+        return 0
     } else if (playerSelection == 'pedra' && computerSelection == 'tesoura') {
-        return 'Você ganhou!'
+        return 1
     } else if (playerSelection == 'papel' && computerSelection == 'papel') {
-        return 'É um impate'
+        return 2
     } else if (playerSelection == 'papel' && computerSelection == 'pedra') {
-        return 'Você ganhou!'
+        return 1
     } else if (playerSelection == 'papel' && computerSelection == 'tesoura') {
-        return 'Computador ganhou'
+        return 0
     } else if (playerSelection == 'tesoura' && computerSelection == 'tesoura') {
-        return 'É um empate'
+        return 2
     } else if (playerSelection == 'tesoura' && computerSelection == 'pedra') {
-        return 'Computador ganhou'
+        return 0
     } else if (playerSelection == 'tesoura' && computerSelection == 'papel') {
-        return 'Você ganhou!'
+        return 1
     }
 }
 
-//Uma rodada do jogo
-const playerSelection = 'TesOura';
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    //Loop para jogar 5 partidas e anotar o placar dos jogadores
+    for (let i = 0; i < 5; i++) {
+        console.log(`----Rodada ${i+1}---- \n`);
+        //armazena a escolha do jogador
+        const playerSelection = prompt("Digite sua escolha: pedra, papel ou tesoura!");
+        //armazena a escolha do computador
+        const computerSelection = getComputerChoice();
+        //jogue uma rodada
+        let resultado = playRound(playerSelection, computerSelection);
+
+        //anuncia as escolhas
+        console.log(`Você escolheu ${playerSelection} \n`);
+        console.log(`Computador escolheu ${computerSelection} \n`);
+        //Determina quem receberá um ponto
+        if (resultado == 0) {
+            computerScore++
+            console.log("O computador venceu a rodada!");
+        } else if (resultado == 1) {
+            playerScore++
+            console.log("Você venceu a rodada!");
+        } else if (resultado == 2) {
+            computerScore++
+            playerScore++
+            console.log("Essa rodade foi um empate!");
+        }
+
+        
+    }
+
+    //Depois de jogadas as cinco vezes, anunciar o vencedor
+    console.log('Terminou o Jogo! \n')
+    console.log(`Placar: \n`)
+    console.log(`Você ganhou ${playerScore} pontos \n`)
+    console.log(`O computador ganhou ${computerScore} pontos \n`)
+
+    if (playerScore == computerScore) {
+        console.log("Vocês emparatam!! \n")
+    } else if (playerScore > computerScore) {
+        console.log('Você é o vencedor!! \n')
+    } else if (playerScore < computerScore) {
+        console.log("O vencedor é o computador!!")
+    }
+}
+
+game();
