@@ -55,7 +55,7 @@ function game() {
 
     //Loop para jogar 5 partidas e anotar o placar dos jogadores
     for (let i = 0; i < 5; i++) {
-        console.log(`----Rodada ${i+1}---- \n`);
+        console.log(`----Rodada ${i + 1}---- \n`);
         //armazena a escolha do jogador
         const playerSelection = prompt("Digite sua escolha: pedra, papel ou tesoura!");
         //armazena a escolha do computador
@@ -79,7 +79,7 @@ function game() {
             console.log("Essa rodade foi um empate!");
         }
 
-        
+
     }
 
     //Depois de jogadas as cinco vezes, anunciar o vencedor
@@ -96,5 +96,3 @@ function game() {
         console.log("O vencedor é o computador!!")
     }
 }
-
-game();
