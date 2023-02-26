@@ -1,13 +1,12 @@
 body {
+    overflow-x: auto; /*Evita que apareça uma barra de rolagem na horizontal em modo responsivo*/
     background: linear-gradient(180deg, rgb(41, 39, 39), rgb(67, 67, 67));
-    height: 100vh;
-    width: 100vw;
+    height: 100vh;    
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-
+    align-items: center;    
 }
 
 /*HEADER*/
@@ -18,7 +17,6 @@ header {
     text-align: center;
     padding: 2rem;
     width: 100%;
-
 }
 
 h1 {
