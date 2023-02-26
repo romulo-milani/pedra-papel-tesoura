@@ -1,4 +1,4 @@
-body {    
+body {
     background: linear-gradient(180deg, rgb(41, 39, 39), rgb(67, 67, 67));
     height: 100vh;
     color: white;
@@ -45,9 +45,14 @@ h3 {
     margin-bottom: 2rem;
     font-weight: 700;
 }
-.escolhas-container{
+
+.h3-resultado-rodada {
+    color: transparent;
+}
+
+.escolhas-container {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .escolha-jogador-container,
@@ -59,14 +64,14 @@ h3 {
 }
 
 .escolha-jogador-container {
-    border: solid  #2824E6 2px;
+    border: solid #2824E6 2px;
     background-color: #716fd9;
 }
 
 
 .escolha-computador-container {
-    border: solid   #EB148A 2px;
-    background-color:  #EB148A;
+    border: solid #EB148A 2px;
+    background-color: #EB148A;
 }
 
 .escolha-jogador-container p,
@@ -75,4 +80,34 @@ h3 {
     text-align: center;
     font-weight: 600;
     font-size: 1.5rem;
+}
+
+.selecao-jogador-container {
+    text-align: center;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    border-radius: 16px;
+    padding: 20px;
+    width: 8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-sua-escolha {
+    margin: 2rem;
+}
+
+.buttons-container p, .p-sua-escolha {
+    font-weight: 600;
+    font-size: 1.5rem;
+
 }
