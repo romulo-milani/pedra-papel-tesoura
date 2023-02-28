@@ -1,5 +1,7 @@
 body {
     background: linear-gradient(180deg, rgb(41, 39, 39), rgb(67, 67, 67));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     color: white;
     display: flex;
