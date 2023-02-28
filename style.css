@@ -176,8 +176,17 @@ footer {
 
 @media (max-width: 500px) {
     .escolhas-container {
-        flex-direction: column;
         justify-content: center;
+    }
+
+    .escolha-computador-antes,
+    .escolha-jogador-antes {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .img-resultado-antes {
+        width: 4rem;
     }
 
     h3,
@@ -201,7 +210,7 @@ footer {
 
     .p-jogador,
     .p-computador {
-        font-size: 15px;
+        font-size: 10px;
     }
 
     button {
