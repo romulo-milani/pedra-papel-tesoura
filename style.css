@@ -35,7 +35,7 @@ h2 {
 }
 
 /*SEÇÃO JOGO*/
-.jogo {
+main {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -63,7 +63,7 @@ h4 {
 }
 
 .h4-computador {
-    color:#EB148A;
+    color: #EB148A;
 }
 
 .escolhas-container {
@@ -150,7 +150,7 @@ button {
 }
 
 button:hover {
-    box-shadow: 0 0 10px 10px  rgb(134, 3, 160);
+    box-shadow: 0 0 10px 10px rgb(134, 3, 160);
     cursor: pointer;
 }
 
@@ -162,8 +162,57 @@ button:hover {
     margin: 2rem;
 }
 
-.buttons-container p, .p-sua-escolha {
+.buttons-container p,
+.p-sua-escolha {
     font-weight: 600;
     font-size: 1.5rem;
+}
 
+footer {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+
+@media (max-width: 500px) {
+    .escolhas-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h3,
+    .h3-resultado-rodada {
+        margin: 0.5rem;
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    .jogador-container,
+    .computador-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .p-jogador,
+    .p-computador {
+        font-size: 15px;
+    }
+
+    button {
+        width: 90px;
+    }
+
+    .btn-img {
+        width: 30px;
+    }
+
+    .buttons-container p{
+        font-size: 10px;
+    }
 }
