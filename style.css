@@ -1,5 +1,7 @@
 body {
     background: linear-gradient(180deg, rgb(41, 39, 39), rgb(67, 67, 67));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     color: white;
     display: flex;
@@ -176,8 +178,17 @@ footer {
 
 @media (max-width: 500px) {
     .escolhas-container {
-        flex-direction: column;
         justify-content: center;
+    }
+
+    .escolha-computador-antes,
+    .escolha-jogador-antes {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .img-resultado-antes {
+        width: 4rem;
     }
 
     h3,
@@ -201,7 +212,7 @@ footer {
 
     .p-jogador,
     .p-computador {
-        font-size: 15px;
+        font-size: 10px;
     }
 
     button {
