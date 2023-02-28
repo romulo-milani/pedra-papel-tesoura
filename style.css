@@ -203,4 +203,16 @@ footer {
     .p-computador {
         font-size: 15px;
     }
+
+    button {
+        width: 90px;
+    }
+
+    .btn-img {
+        width: 30px;
+    }
+
+    .buttons-container p{
+        font-size: 10px;
+    }
 }
