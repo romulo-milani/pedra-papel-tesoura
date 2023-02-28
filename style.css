@@ -42,7 +42,7 @@ h2 {
 h3 {
     text-align: center;
     font-size: 30px;
-    margin-bottom: 2rem;
+    margin: 2rem;
     font-weight: 700;
 }
 
@@ -50,37 +50,83 @@ h3 {
     color: transparent;
 }
 
+h4 {
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.h4-voce {
+    color: #4947e1;
+    margin-right: 4rem;
+}
+
+.h4-computador {
+    color:#EB148A;
+}
+
 .escolhas-container {
     display: flex;
     gap: 3rem;
 }
 
-.escolha-jogador-container,
-.escolha-computador-container {
+.escolha-jogador-antes,
+.escolha-computador-antes {
     flex: 1;
     border-radius: 16px;
     padding: 20px;
     width: 8rem;
+    text-align: center;
 }
 
-.escolha-jogador-container {
+.escolha-jogador-antes {
+    border: solid #2824E6 2px;
+}
+
+.escolha-computador-antes {
+    border: solid #EB148A 2px;
+}
+
+.img-resultado-antes {
+    max-width: 100px;
+    visibility: hidden;
+}
+
+.img-resultado-depois {
+    max-width: 100px;
+}
+
+.escolha-jogador-depois {
+    flex: 1;
+    border-radius: 16px;
+    padding: 20px;
+    width: 8rem;
+    text-align: center;
     border: solid #2824E6 2px;
     background-color: #716fd9;
 }
 
 
-.escolha-computador-container {
+.escolha-computador-depois {
+    flex: 1;
+    border-radius: 16px;
+    padding: 20px;
+    width: 8rem;
+    text-align: center;
     border: solid #EB148A 2px;
     background-color: #EB148A;
 }
 
-.escolha-jogador-container p,
-.escolha-computador-container p {
+.p-jogador,
+.p-computador {
     margin-bottom: 1.5rem;
     text-align: center;
     font-weight: 600;
     font-size: 1.5rem;
 }
+
+
 
 .selecao-jogador-container {
     text-align: center;
@@ -92,6 +138,7 @@ h3 {
 }
 
 button {
+    border: 2px solid rgb(134, 3, 160);
     border-radius: 16px;
     padding: 20px;
     width: 8rem;
@@ -100,6 +147,15 @@ button {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+button:hover {
+    box-shadow: 0 0 10px 10px  rgb(134, 3, 160);
+    cursor: pointer;
+}
+
+.btn-img {
+    max-width: 100px;
 }
 
 .p-sua-escolha {
