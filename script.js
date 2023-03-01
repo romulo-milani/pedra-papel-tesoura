@@ -16,6 +16,8 @@ const imgComputador = document.querySelector('.img-computador');
 const divEscolhaJogador = document.querySelector('.div-escolha-jogador');
 //div mostrando a imagem da escolha do computador
 const divEscolhaComputador = document.querySelector('.div-escolha-computador');
+//seleciona o texto principal para anunciar o fim do jogo
+const h3Rodada = document.querySelector('#h3-rodada');
 
 //Função que faz o computador retornar um valor aleatório entre pedra, papel e tesoura
 function getComputerChoice() {
@@ -125,7 +127,7 @@ for (let i = 0; i < btns.length; i++) {
                 //passa a rodada
                 rodada++;
                 contadorRodada.textContent = rodada;
-                
+
             } else if (resultado === 2) {
                 //se empatar, os dois recebem um ponto
                 computerScore++;
@@ -143,14 +145,14 @@ for (let i = 0; i < btns.length; i++) {
             }
 
         } else if (rodada == 4) {
-            
+
             //atualiza o placar
             if (resultado == 0) {
                 //atualiza o score do computador
                 computerScore++;
             } else if (resultado == 1) {
                 playerScore++
-            } else if(resultado == 2) {
+            } else if (resultado == 2) {
                 computerScore++;
                 playerScore++
             }
@@ -161,18 +163,16 @@ for (let i = 0; i < btns.length; i++) {
             mostraEscolhas(playerChoice, computerChoice);
             //passa a rodada
             rodada++
-            contadorRodada.textContent = rodada;
+            contadorRodada.textContent = '';
+            h3Rodada.textContent = 'FIM!!'
 
             if (playerScore == computerScore) {
-                contadorRodada.textContent = rodada;
                 h3resultado.textContent = "O jogo foi um empate!";
                 return;
             } else if (playerScore > computerScore) {
-                contadorRodada.textContent = rodada;
                 h3resultado.textContent = "Parabéns, você ganhou o jogo!";
                 return;
             } else if (playerScore < computerScore) {
-                contadorRodada.textContent = rodada;
                 h3resultado.textContent = "O robô ganhou o jogo!";
                 return;
             }
