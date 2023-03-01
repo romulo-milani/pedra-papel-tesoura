@@ -52,6 +52,10 @@ h3 {
     color: transparent;
 }
 
+.h3-aparece {
+    color: white;
+}
+
 h4 {
     font-size: 25px;
     font-weight: 700;
