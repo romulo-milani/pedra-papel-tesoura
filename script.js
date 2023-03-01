@@ -164,7 +164,7 @@ for (let i = 0; i < btns.length; i++) {
             //passa a rodada
             rodada++
             contadorRodada.textContent = '';
-            h3Rodada.textContent = 'FIM!!'
+            h3Rodada.textContent = 'FIM DE JOGO!'
 
             if (playerScore == computerScore) {
                 h3resultado.textContent = "O jogo foi um empate!";
