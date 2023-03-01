@@ -1,3 +1,21 @@
+//botões de seleção
+const btns = document.querySelectorAll('.button');
+//texto h3 que anuncia o vencedor da jogada
+const h3resultado = document.querySelector('.h3-resultado-rodada');
+//placar do jogador
+let placarJogador = document.querySelector('.jogador-score');
+//placar do computador
+let placarComputador = document.querySelector('.computador-score');
+//contador de rodada
+let contadorRodada = document.querySelector('.contador-rodada');
+//imagem mostrando a escolha do jogador
+const imgJogador = document.querySelector('.img-jogador');
+//imagem mostrando a escolha do computador
+const imgComputador = document.querySelector('.img-computador');
+//div mostrando a imagem da escolha do jogador
+const divEscolhaJogador = document.querySelector('.div-escolha-jogador');
+//div mostrando a imagem da escolha do computador
+const divEscolhaComputador = document.querySelector('.div-escolha-computador');
 
 //Função que faz o computador retornar um valor aleatório entre pedra, papel e tesoura
 function getComputerChoice() {
@@ -46,89 +64,121 @@ function playRound(playerSelection, computerSelection) {
         return 1
     }
 }
+//função que troca a imagem nos divs conforme as escolhas dos jogadores
+function mostraEscolhas(escolhaJogador, escolhaComputador) {
+    //troca as imagens
+    imgJogador.setAttribute('src', `imagens/${escolhaJogador}.png`);
+    imgComputador.setAttribute('src', `imagens/${escolhaComputador}.png`);
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+    //faz as imagens aparecerem
+    imgJogador.classList.remove('img-resultado-antes');
+    imgComputador.classList.remove('img-resultado-antes');
 
-    //Loop para jogar 5 partidas e anotar o placar dos jogadores
-    for (let i = 0; i < 5; i++) {
-        console.log(`----Rodada ${i + 1}---- \n`);
-        //armazena a escolha do jogador
-        const playerSelection = prompt("Digite sua escolha: pedra, papel ou tesoura!");
-        //armazena a escolha do computador
-        const computerSelection = getComputerChoice();
-        //jogue uma rodada
-        let resultado = playRound(playerSelection, computerSelection);
+    imgJogador.classList.add('img-resultado-depois');
+    imgComputador.classList.add('img-resultado-depois');
 
-        //anuncia as escolhas
-        console.log(`Você escolheu ${playerSelection} \n`);
-        console.log(`Computador escolheu ${computerSelection} \n`);
-        //Determina quem receberá um ponto
-        if (resultado == 0) {
-            computerScore++
-            console.log("O computador venceu a rodada!");
-        } else if (resultado == 1) {
-            playerScore++
-            console.log("Você venceu a rodada!");
-        } else if (resultado == 2) {
-            computerScore++
-            playerScore++
-            console.log("Essa rodade foi um empate!");
-        }
+    //troca o estilo das divs
+    divEscolhaJogador.classList.remove('escolha-jogador-antes');
+    divEscolhaComputador.classList.remove('escolha-computador-antes');
+
+    divEscolhaJogador.classList.add('escolha-jogador-depois');
+    divEscolhaComputador.classList.add('escolha-computador-depois');
 
 
-    }
-
-    //Depois de jogadas as cinco vezes, anunciar o vencedor
-    console.log('Terminou o Jogo! \n')
-    console.log(`Placar: \n`)
-    console.log(`Você ganhou ${playerScore} pontos \n`)
-    console.log(`O computador ganhou ${computerScore} pontos \n`)
-
-    if (playerScore == computerScore) {
-        console.log("Vocês emparatam!! \n")
-    } else if (playerScore > computerScore) {
-        console.log('Você é o vencedor!! \n')
-    } else if (playerScore < computerScore) {
-        console.log("O vencedor é o computador!!")
-    }
 }
 
-//SELECIONA OS BOTÕES
-const btns = document.querySelectorAll('.button');
-
-//SELECIONA O TEXTO DE ANUNCIO DO VENCEDOR DA RODADA
-const h3resultado = document.querySelector('.h3-resultado-rodada');
+let playerScore = 0;
+let computerScore = 0;
+let rodada = 0;
 
 for (let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', () => {
+    btns[i].addEventListener('click', function game() {
 
-        //salva a escolha do jogador
         const playerChoice = btns[i].value;
-
-        //salva a escolha do computador
         const computerChoice = getComputerChoice();
-
-        //joga uma rodada com as escolhas e anuncia o vencedor  
         const resultado = playRound(playerChoice, computerChoice);
 
-        //modificar o texto de anuncio dependendo do vencedor
-        if (resultado == 0) {
-            h3resultado.textContent = 'Robô venceu a rodada';
-            h3resultado.classList.remove('h3-resultado-rodada');
-            h3resultado.classList.add('h3-aparece');
-        } else if (resultado == 1) {
-            h3resultado.textContent = 'Você venceu a rodada';
-            h3resultado.classList.remove('h3-resultado-rodada');
-            h3resultado.classList.add('h3-aparece');
-        } else if (resultado === 2) {
-            h3resultado.textContent = 'Foi um empate';
-            h3resultado.classList.remove('h3-resultado-rodada');
-            h3resultado.classList.add('h3-aparece');
-        }  
+        if (rodada < 4) {
+            if (resultado == 0) {
+                //atualiza o score do computador
+                computerScore++;
+                placarComputador.textContent = computerScore;
+                //anuncia o vencedor no texto h3
+                h3resultado.textContent = 'Robô venceu a rodada';
+                h3resultado.classList.remove('h3-resultado-rodada');
+                h3resultado.classList.add('h3-aparece');
+                //atualiza e mostra a imagem na div
+                mostraEscolhas(playerChoice, computerChoice);
+                //passa a rodada
+                rodada++;
+                contadorRodada.textContent = rodada;
+            } else if (resultado == 1) {
+                //atualiza o score do jogador
+                playerScore++;
+                placarJogador.textContent = playerScore;
+                //anuncia o vencedor no texto h3
+                h3resultado.textContent = 'Você venceu a rodada';
+                h3resultado.classList.remove('h3-resultado-rodada');
+                h3resultado.classList.add('h3-aparece');
+                //atualiza e mostra a imagem na div
+                mostraEscolhas(playerChoice, computerChoice);
+                //passa a rodada
+                rodada++;
+                contadorRodada.textContent = rodada;
+                
+            } else if (resultado === 2) {
+                //se empatar, os dois recebem um ponto
+                computerScore++;
+                placarComputador.textContent = computerScore;
+                playerScore++;
+                placarJogador.textContent = playerScore;
+                h3resultado.textContent = 'Foi um empate';
+                h3resultado.classList.remove('h3-resultado-rodada');
+                h3resultado.classList.add('h3-aparece');
+                //atualiza e mostra a imagem na div
+                mostraEscolhas(playerChoice, computerChoice);
+                //passa a rodada
+                rodada++;
+                contadorRodada.textContent = rodada;
+            }
+
+        } else if (rodada == 4) {
+            
+            //atualiza o placar
+            if (resultado == 0) {
+                //atualiza o score do computador
+                computerScore++;
+            } else if (resultado == 1) {
+                playerScore++
+            } else if(resultado == 2) {
+                computerScore++;
+                playerScore++
+            }
+
+            placarJogador.textContent = playerScore;
+            placarComputador.textContent = computerScore;
+            //mostra o resultado
+            mostraEscolhas(playerChoice, computerChoice);
+            //passa a rodada
+            rodada++
+            contadorRodada.textContent = rodada;
+
+            if (playerScore == computerScore) {
+                contadorRodada.textContent = rodada;
+                h3resultado.textContent = "O jogo foi um empate!";
+                return;
+            } else if (playerScore > computerScore) {
+                contadorRodada.textContent = rodada;
+                h3resultado.textContent = "Parabéns, você ganhou o jogo!";
+                return;
+            } else if (playerScore < computerScore) {
+                contadorRodada.textContent = rodada;
+                h3resultado.textContent = "O robô ganhou o jogo!";
+                return;
+            }
+
+        } else if (rodada > 4) {
+            return;
+        }
     })
 }
-
-
-

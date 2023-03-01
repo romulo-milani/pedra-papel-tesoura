@@ -22,21 +22,21 @@
     </header>
     <main>
         <div class="jogo-container">
-            <h3>Rodada 1</h3>
+            <h3>Rodada <span class="contador-rodada"></span></h3>
             <h3 class="h3-resultado-rodada">Foi um empate!</h3>
             <div class="escolhas-container">
                 <div class="jogador-container">
-                    <h4 class="h4-voce">Você: 1</h4>
-                    <div class="escolha-jogador-antes">
+                    <h4 class="h4-voce">Você: <span class="jogador-score">0</span></h4>
+                    <div class="escolha-jogador-antes div-escolha-jogador">
                         <p class="p-jogador">Você</p>
-                        <img class="img-resultado-antes" src="imagens/pedra.png">
+                        <img class="img-resultado-antes img-jogador" src="imagens/pedra.png">
                     </div>
                 </div>
                 <div class="computador-container">
-                    <h4 class="h4-computador">Computador: 1</h4>
-                    <div class="escolha-computador-antes">
-                        <p class="p-computador">Computador</p>
-                        <img class="img-resultado-antes" src="imagens/tesoura.png">
+                    <h4 class="h4-computador">Robô: <span class="computador-score">0</span></h4>
+                    <div class="escolha-computador-antes div-escolha-computador">
+                        <p class="p-computador">Robô</p>
+                        <img class="img-resultado-antes img-computador" src="imagens/tesoura.png">
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
         </div>
     </main>
     <footer>
-        <p>Copyright© Rômulo Milani </p>
+        <p>Copyright © Rômulo Milani </p>
     </footer>
 
     <script src="script.js"></script>
