@@ -21,8 +21,6 @@ function getComputerChoice() {
 
 //Função que joga apenas uma rodada do jogo
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
 
     //se retornar 0 o computador ganhou
     //se retornar 1 o jogador ganhou
@@ -96,3 +94,18 @@ function game() {
         console.log("O vencedor é o computador!!")
     }
 }
+
+//SELECIONA OS BOTÕES
+const btns = document.querySelectorAll('.button');
+
+for (let i = 0; i<btns.length; i++) {
+    btns[i].addEventListener('click', () => {
+        //salva a escolha do jogador
+        const playerChoice = btns[i].value;
+        //salva a escolha do computador
+        const computerChoice = getComputerChoice();  
+        //joga uma rodada com as escolhas e anuncia o vencedor  
+        const resultado = playRound(playerChoice, computerChoice);
+    })
+}
+
