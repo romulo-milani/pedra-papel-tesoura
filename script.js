@@ -21,8 +21,6 @@ function getComputerChoice() {
 
 //Função que joga apenas uma rodada do jogo
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
 
     //se retornar 0 o computador ganhou
     //se retornar 1 o jogador ganhou
@@ -96,3 +94,41 @@ function game() {
         console.log("O vencedor é o computador!!")
     }
 }
+
+//SELECIONA OS BOTÕES
+const btns = document.querySelectorAll('.button');
+
+//SELECIONA O TEXTO DE ANUNCIO DO VENCEDOR DA RODADA
+const h3resultado = document.querySelector('.h3-resultado-rodada');
+
+for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', () => {
+
+        //salva a escolha do jogador
+        const playerChoice = btns[i].value;
+
+        //salva a escolha do computador
+        const computerChoice = getComputerChoice();
+
+        //joga uma rodada com as escolhas e anuncia o vencedor  
+        const resultado = playRound(playerChoice, computerChoice);
+
+        //modificar o texto de anuncio dependendo do vencedor
+        if (resultado == 0) {
+            h3resultado.textContent = 'Robô venceu a rodada';
+            h3resultado.classList.remove('h3-resultado-rodada');
+            h3resultado.classList.add('h3-aparece');
+        } else if (resultado == 1) {
+            h3resultado.textContent = 'Você venceu a rodada';
+            h3resultado.classList.remove('h3-resultado-rodada');
+            h3resultado.classList.add('h3-aparece');
+        } else if (resultado === 2) {
+            h3resultado.textContent = 'Foi um empate';
+            h3resultado.classList.remove('h3-resultado-rodada');
+            h3resultado.classList.add('h3-aparece');
+        }  
+    })
+}
+
+
+
